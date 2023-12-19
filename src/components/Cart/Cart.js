@@ -12,7 +12,7 @@ const Cart = () => {
     const cartItem = useSelector((state) => state.cart.cartItem)
 
     const handleCheckout = () => {
-        axios.post('https://stripe-backend-wine.vercel.app/create-checkout-session', {
+        axios.post('https://stripe-backend-1.vercel.app/create-checkout-session', {
             cartItem,
             userId: 'stripetesting@gmail.coom'
         }).then((res) => {
