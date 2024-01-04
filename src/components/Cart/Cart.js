@@ -33,7 +33,7 @@ const Cart = () => {
         }
         else if (auth.currentUser) {
             setLoading(true)
-            axios.post('https://stripe-backend-m3lf.onrender.com/create-checkout-session', {
+            axios.post('https://stripe-backend-vm7d.onrender.com/create-checkout-session', {
                 cartItem,
                 email: JSON.parse(localStorage.getItem('user'))?.user.email,
                 userUid: JSON.parse(localStorage.getItem('user'))?.user.uid,
