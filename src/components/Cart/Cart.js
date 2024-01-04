@@ -89,15 +89,7 @@ const Cart = () => {
                 <div className="cart-bottom text-center align-items-center justify-content-between">
                     <h6>Total Amount: <span>${inTotal}</span></h6>
                     <Button onClick={handleCheckout} className='w-100' disabled={cartItem.length === 0}>
-                        {
-                            click === true ? (
-                                <div>
-                                    {loading && <Loader />}
-                                </div>
-                            ) : <>
-                                    Process to Checkout
-                            </>
-                        }
+                        Process to Checkout {loading && <Loader />}
                     </Button>
                 </div>
             </ListGroup>
