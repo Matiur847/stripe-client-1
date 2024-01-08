@@ -10,7 +10,7 @@ const Success = () => {
     const dispatch = useDispatch()
     const path = window.location.pathname
 
-        if (`http://localhost:3000${path}`) {
+    if (`https://stripe-client-1.vercel.app${path}`) {
             dispatch(cartActions.clearCartItem())
         }
         else {
