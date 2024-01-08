@@ -20,12 +20,10 @@ const Cart = () => {
     const cartItem = useSelector((state) => state.cart.cartItem)
     const auth = getAuth()
 
-    // console.log(cartItem)
-
     const handleCheckout = async () => {
         setClick(true)
-        if (cartItem.length > 2) {
-            toast.error("Max order 2 items", {
+        if(cartItem.length > 12) {
+            toast.error("Per order max item 12", {
                 position: toast.POSITION.BOTTOM_CENTER,
                 autoClose: 2000
             })
@@ -33,7 +31,7 @@ const Cart = () => {
         }
         else if (auth.currentUser) {
             setLoading(true)
-            axios.post('https://stripe-backend-vm7d.onrender.com/create-checkout-session', {
+            axios.post('http://localhost:5000/create-checkout-session', {
                 cartItem,
                 email: JSON.parse(localStorage.getItem('user'))?.user.email,
                 userUid: JSON.parse(localStorage.getItem('user'))?.user.uid,
@@ -44,6 +42,7 @@ const Cart = () => {
                     window.location.href = res.data.url
                 }
             }).catch((err) => {
+                setClick(false)
                 setLoading(false)
                 console.log(err.messagess)
             })
@@ -54,6 +53,7 @@ const Cart = () => {
                 position: toast.POSITION.BOTTOM_CENTER,
                 autoClose: 2000
             })
+            setClick(false)
         }
     }
 
@@ -89,7 +89,15 @@ const Cart = () => {
                 <div className="cart-bottom text-center align-items-center justify-content-between">
                     <h6>Total Amount: <span>${inTotal}</span></h6>
                     <Button onClick={handleCheckout} className='w-100' disabled={cartItem.length === 0}>
-                        Process to Checkout {loading && <Loader />}
+                        {
+                            click === true ? (
+                                <div>
+                                    {loading && <Loader />}
+                                </div>
+                            ) : <>
+                                    Process to Checkout
+                            </>
+                        }
                     </Button>
                 </div>
             </ListGroup>
