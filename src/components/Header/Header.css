@@ -61,6 +61,21 @@ input:focus {
     text-decoration: none;
 }
 
+@media only screen and (max-width: 576px) {
+    .search-input {
+        margin: 0px 10px;
+    }
+
+    .header-login-btn {
+        font-size: 13px;
+        padding: 4px 18px;
+    }
+
+    .cart-icon {
+        font-size: 27px;
+    }
+}
+
 @media only screen and (max-width: 450px) {
     .header-login-btn {
         font-size: 10px;
