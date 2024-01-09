@@ -37,8 +37,8 @@ const OrderHistory = () => {
         <div key={index} className='order-container'>
             <div className='d-flex center justify-content-around p-3'>
                 <div>
-                    <h4>Order ID: <small>{order.customerId}</small></h4>
-                    <p>{order.date.m}, {order.date.y}, {order.date.t}</p>
+                    <h4>Order ID: <small>#{order.customerId}</small></h4>
+                    <p>{order.date}</p>
                 </div>
                 <div>
                     <h4>Order Email: <small>{order.email}</small></h4>
@@ -70,11 +70,6 @@ const OrderHistory = () => {
                                         </div>
                                         <div className='totalPrice'>
                                             <h5>Total Price: ${orderItem.totalPrice.toFixed(2)}</h5>
-                                            {/* <h5>InTotal Price: ${order.amount}</h5> */}
-                                            {/* <button className='header-login-btn order-paid'>
-                                                Paid <i className="ri-shield-check-line"></i>
-                                            </button> */}
-
                                             {['top'].map((placement) => (
                                                 <OverlayTrigger
                                                     key={placement}
