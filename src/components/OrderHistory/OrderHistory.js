@@ -80,7 +80,7 @@ const OrderHistory = () => {
                                                         </Tooltip>
                                                     }
                                                 >
-                                                    <button className='header-login-btn order-paid'>
+                                                    <button className='header-login-btn order-paid mb-2'>
                                                         Paid <i className="ri-shield-check-line"></i>
                                                     </button>
                                                 </OverlayTrigger>
